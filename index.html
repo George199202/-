@@ -62,6 +62,7 @@
                 radial-gradient(circle at 15% 50%, rgba(168, 182, 161, 0.03) 0%, transparent 20%),
                 radial-gradient(circle at 85% 30%, rgba(194, 166, 115, 0.02) 0%, transparent 20%);
             overflow-x: hidden;
+            padding-top: 80px; /* 为顶部导航栏留出空间 */
         }
 
         /* 布局容器 */
@@ -169,7 +170,6 @@
         /* 英雄区域 */
         .hero-section {
             padding: var(--space-xl) 0 var(--space-lg);
-            margin-top: 80px;
             text-align: center;
             position: relative;
         }
@@ -626,16 +626,110 @@
 
         /* 响应式设计 */
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px; /* 减少顶部空间 */
+            }
+            
+            .site-header {
+                padding: 10px 0;
+                height: 70px;
+            }
+            
+            .header-container {
+                padding: 0 var(--space-sm);
+                height: 50px;
+            }
+            
+            .site-title {
+                font-size: 1.2rem;
+            }
+            
+            .site-title .sub {
+                display: none; /* 在手机上隐藏副标题 */
+            }
+            
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-top: 0;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .hero-section {
+                padding: var(--space-lg) 0 var(--space-md);
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: var(--space-md);
+            }
+            
+            .main-nav ul {
+                gap: var(--space-sm);
+            }
+            
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 2px 0;
+            }
+            
+            .date-range {
+                margin-bottom: var(--space-lg);
+                font-size: 0.85rem;
+                padding: 5px 15px;
+            }
+            
+            .selector-title {
+                font-size: 1.1rem;
+                margin-bottom: var(--space-md);
+            }
+            
+            .selector-title::before,
+            .selector-title::after {
+                width: 30px;
             }
             
             .journey-cards {
-                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+                margin-bottom: var(--space-lg);
+            }
+            
+            .journey-card {
+                padding: var(--space-sm);
+            }
+            
+            .card-icon {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .card-title {
+                font-size: 1.2rem;
+            }
+            
+            .card-duration {
+                font-size: 0.8rem;
+            }
+            
+            .card-desc {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-intro {
+                font-size: 1rem;
+                line-height: 1.6;
             }
             
             .timeline {
-                padding-left: 30px;
+                padding-left: 20px;
+                margin: var(--space-lg) 0;
+            }
+            
+            .timeline::before {
+                left: 9px;
             }
             
             .timeline-time {
@@ -644,36 +738,134 @@
                 top: 0;
                 margin-bottom: 10px;
                 display: inline-block;
+                min-width: auto;
+                font-size: 0.9rem;
+                padding: 4px 10px;
             }
             
             .timeline-content {
                 margin-left: 0;
+                padding: var(--space-sm);
             }
             
             .timeline-content::before {
                 display: none;
             }
             
-            .main-nav ul {
-                gap: var(--space-sm);
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+            
+            .day-separator {
+                margin: var(--space-lg) 0;
+            }
+            
+            .day-label {
+                font-size: 1.2rem;
+                padding: 8px 20px;
+            }
+            
+            .tips-box {
+                padding: var(--space-sm);
+            }
+            
+            .tips-title {
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--space-sm);
+            body {
+                padding-top: 65px;
+            }
+            
+            .site-header {
+                height: 65px;
+                padding: 8px 0;
             }
             
             .hero-title {
-                font-size: 2rem;
-            }
-            
-            .section-title {
                 font-size: 1.8rem;
             }
             
-            .card-icon {
-                font-size: 1.8rem;
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .site-title {
+                font-size: 1.1rem;
+            }
+            
+            .main-nav ul {
+                gap: 8px;
+            }
+            
+            .nav-link {
+                font-size: 0.8rem;
+            }
+            
+            .journey-card {
+                padding: 12px;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-desc {
+                font-size: 0.85rem;
+            }
+            
+            .card-highlight {
+                font-size: 0.7rem;
+            }
+            
+            .timeline-item {
+                margin-bottom: var(--space-md);
+            }
+            
+            .activity-tag {
+                font-size: 0.7rem;
+                padding: 2px 8px;
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+            
+            .timeline-highlight {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            
+            .activity-time-note {
+                font-size: 0.75rem;
+                padding: 3px 8px;
+            }
+            
+            [style*="color: #c62828"] {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .site-title {
+                font-size: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.75rem;
             }
         }
     </style>
