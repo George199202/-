@@ -3,686 +3,1610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鲲鹏福地春节时序｜过一个香香的大年</title>
+    <title>香年 · 鲲鹏福地春节时序</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* 微信公众号通用样式 */
+        :root {
+            /* 观夏-inspired 色调系统 */
+            --color-bg-primary: #fcfaf8; /* 米白宣纸底 */
+            --color-bg-secondary: #f8f5f2; /* 浅灰衬底 */
+            --color-bg-card: rgba(255, 255, 255, 0.85); /* 毛玻璃卡片 */
+            --color-text-primary: #2c3a2d; /* 墨绿/墨黑 - 主文字 */
+            --color-text-secondary: #6b7d6c; /* 灰绿 - 次文字 */
+            --color-text-light: #9aab9b; /* 浅灰绿 - 辅助信息 */
+            --color-accent-green: #8a9b7c; /* 主色 - 雅致青绿 */
+            --color-accent-green-light: #a8b6a1; /* 浅青绿 */
+            --color-accent-gold: #c2a673; /* 点缀色 - 淡金 */
+            --color-border: rgba(138, 155, 124, 0.15); /* 极淡绿边框 */
+            --color-shadow: rgba(44, 58, 45, 0.05); /* 极淡阴影 */
+
+            /* 字体系统 - 使用苹果系统字体 */
+            --font-serif: 'Noto Serif SC', serif; /* 标题 - 衬线体 */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif; /* 正文 - 无衬线体 */
+
+            /* 几何尺寸 */
+            --radius-sm: 4px; /* 小圆角 */
+            --radius-md: 8px; /* 中圆角 */
+            --radius-lg: 20px; /* 大圆角 - 用于卡片 */
+
+            /* 间距系统 */
+            --space-unit: 8px;
+            --space-xs: calc(var(--space-unit) * 1); /* 8px */
+            --space-sm: calc(var(--space-unit) * 2); /* 16px */
+            --space-md: calc(var(--space-unit) * 4); /* 32px */
+            --space-lg: calc(var(--space-unit) * 8); /* 64px */
+            --space-xl: calc(var(--space-unit) * 12); /* 96px */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* 基准字体大小 */
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-        
-        .article-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* 标题样式 */
-        h1 {
-            font-size: 22px;
-            font-weight: bold;
-            color: #1a1a1a;
-            text-align: center;
-            margin: 20px 0 15px;
-            line-height: 1.4;
-        }
-        
-        h2 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin: 25px 0 15px;
-            border-left: 4px solid #8a9b7c;
-            padding-left: 10px;
-        }
-        
-        h3 {
-            font-size: 17px;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin: 20px 0 10px;
-        }
-        
-        /* 段落样式 */
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-            word-break: break-word;
-        }
-        
-        .intro {
+            font-family: var(--font-sans);
+            font-weight: 400;
             font-size: 16px;
-            color: #666;
+            line-height: 1.7;
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-primary);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(168, 182, 161, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(194, 166, 115, 0.02) 0%, transparent 20%);
+            overflow-x: hidden;
+            padding-top: 80px; /* 为顶部导航栏留出空间 */
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* 顶栏导航 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--space-sm) 0;
+            background-color: rgba(252, 250, 248, 0.92);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .site-title {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .site-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-accent-green);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .site-title:hover::after {
+            transform: scaleX(1);
+        }
+
+        .site-title .sub {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+            margin-left: 8px;
+            letter-spacing: 3px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+        }
+
+        .nav-link {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: 4px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-accent-green);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-text-primary);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        /* 英雄区域 */
+        .hero-section {
+            padding: var(--space-xl) 0 var(--space-lg);
             text-align: center;
-            margin-bottom: 20px;
-            padding: 0 10px;
-        }
-        
-        /* 强调文字 */
-        .highlight {
-            color: #c2a673;
-            font-weight: 500;
-        }
-        
-        .important {
-            color: #c62828;
-            font-weight: 500;
-        }
-        
-        /* 时间线样式 */
-        .timeline {
-            margin: 20px 0;
             position: relative;
         }
-        
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .date-range {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            padding: 6px 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 30px;
+            background-color: var(--color-bg-card);
+            backdrop-filter: blur(4px);
+            margin-bottom: var(--space-xl);
+        }
+
+        /* 行程选择器 - 视觉地图概念 */
+        .journey-selector {
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+
+        .selector-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 20px;
+        }
+
+        .selector-title::before, .selector-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 1px;
+            background-color: var(--color-border);
+        }
+
+        .selector-title::before {
+            right: 100%;
+        }
+
+        .selector-title::after {
+            left: 100%;
+        }
+
+        .journey-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .journey-card {
+            background-color: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            border: 1px solid var(--color-border);
+            text-decoration: none;
+            color: var(--color-text-primary);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+        }
+
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 155, 124, 0.03) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent-green-light);
+            box-shadow: 0 12px 30px var(--color-shadow);
+        }
+
+        .journey-card.active {
+            border-color: var(--color-accent-green);
+            box-shadow: 0 8px 25px rgba(138, 155, 124, 0.1);
+        }
+
+        .card-icon {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-accent-green);
+            line-height: 1;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .card-duration {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-sm);
+            font-weight: 300;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .card-highlight {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--color-accent-gold);
+            background-color: rgba(194, 166, 115, 0.08);
+            padding: 3px 10px;
+            border-radius: 30px;
+            margin-top: var(--space-sm);
+        }
+
+        /* 行程详情区域 */
+        .journey-details {
+            margin-bottom: var(--space-xl);
+        }
+
+        .journey-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .journey-section.active {
+            display: block;
+            opacity: 1;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--color-accent-green);
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-intro strong {
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        /* 时间轴 - 艺术化设计 */
+        .timeline {
+            position: relative;
+            margin: var(--space-xl) 0;
+            padding-left: 40px;
+        }
+
         .timeline::before {
             content: '';
             position: absolute;
-            left: 10px;
+            left: 15px;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background-color: #e8e8e8;
+            width: 1px;
+            background-color: var(--color-border);
         }
-        
+
         .timeline-item {
             position: relative;
-            margin-bottom: 20px;
-            padding-left: 30px;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
         }
-        
+
         .timeline-item:last-child {
             margin-bottom: 0;
         }
-        
-        .timeline-item::before {
+
+        .timeline-time {
+            position: absolute;
+            left: -40px;
+            top: 0;
+            background-color: var(--color-bg-card);
+            color: var(--color-accent-green);
+            font-family: var(--font-serif);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            min-width: 100px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background-color: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            border: 1px solid var(--color-border);
+            margin-left: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--color-accent-green-light);
+            box-shadow: 0 8px 20px var(--color-shadow);
+        }
+
+        .timeline-content::before {
             content: '';
             position: absolute;
-            left: 5px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background-color: #8a9b7c;
-            border-radius: 50%;
-            z-index: 2;
-        }
-        
-        .timeline-time {
-            font-weight: bold;
-            color: #8a9b7c;
-            margin-bottom: 5px;
-            font-size: 16px;
-        }
-        
-        .timeline-content {
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 12px;
-            border-left: 3px solid #8a9b7c;
-        }
-        
-        /* 卡片样式 */
-        .card {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-            border: 1px solid #e8e8e8;
-        }
-        
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card-title .icon {
-            margin-right: 8px;
-            font-size: 20px;
-        }
-        
-        /* 标签样式 */
-        .tag {
-            display: inline-block;
-            font-size: 13px;
-            padding: 3px 10px;
-            border-radius: 15px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        
-        .tag-workshop { background-color: #e8f5e8; color: #2e7d32; }
-        .tag-performance { background-color: #fff3e0; color: #ef6c00; }
-        .tag-tour { background-color: #e3f2fd; color: #1565c0; }
-        .tag-market { background-color: #fff8e1; color: #c2a673; }
-        .tag-food { background-color: #f3e5f5; color: #7b1fa2; }
-        
-        /* 提示框 */
-        .tip-box {
-            background-color: #f0f7f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #8a9b7c;
-        }
-        
-        .tip-title {
-            font-weight: bold;
-            color: #2e7d32;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .tip-title .icon {
-            margin-right: 8px;
-        }
-        
-        .tip-list {
-            padding-left: 20px;
-        }
-        
-        .tip-list li {
-            margin-bottom: 8px;
-        }
-        
-        /* 分隔线 */
-        .divider {
+            left: -20px;
+            top: 24px;
+            width: 20px;
             height: 1px;
-            background-color: #e8e8e8;
-            margin: 25px 0;
+            background-color: var(--color-border);
         }
-        
-        .section-divider {
+
+        .timeline-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-title i {
+            color: var(--color-accent-green);
+        }
+
+        .timeline-desc {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+            line-height: 1.6;
+        }
+
+        .activity-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 30px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .tag-workshop { background-color: rgba(138, 155, 124, 0.1); color: var(--color-accent-green); }
+        .tag-performance { background-color: rgba(166, 131, 108, 0.1); color: #a6836c; }
+        .tag-tour { background-color: rgba(108, 142, 166, 0.1); color: #6c8ea6; }
+        .tag-market { background-color: rgba(194, 166, 115, 0.1); color: var(--color-accent-gold); }
+        .tag-exhibition { background-color: rgba(166, 108, 142, 0.1); color: #a66c8e; }
+        .tag-food { background-color: rgba(124, 138, 155, 0.1); color: #7c8a9b; }
+        .tag-wellness { background-color: rgba(115, 166, 194, 0.1); color: #73a6c2; }
+        .tag-accommodation { background-color: rgba(155, 124, 138, 0.1); color: #9b7c8a; }
+
+        .timeline-highlight {
+            background-color: rgba(194, 166, 115, 0.05);
+            border-left: 3px solid var(--color-accent-gold);
+            padding: var(--space-sm);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-top: var(--space-sm);
+            font-size: 0.95rem;
+        }
+
+        .timeline-highlight strong {
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        .activity-time-note {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            background-color: rgba(107, 125, 108, 0.05);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            margin-top: 8px;
+        }
+
+        /* 分隔日期的设计 */
+        .day-separator {
             text-align: center;
-            margin: 30px 0;
+            margin: var(--space-xl) 0;
             position: relative;
         }
-        
-        .section-divider span {
-            background-color: #fff;
-            padding: 0 15px;
-            color: #8a9b7c;
-            font-weight: bold;
+
+        .day-label {
+            display: inline-block;
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-card);
+            padding: 10px 30px;
+            border: 1px solid var(--color-border);
+            border-radius: 30px;
             position: relative;
             z-index: 2;
         }
-        
-        .section-divider::before {
+
+        .day-separator::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 0;
             right: 0;
             height: 1px;
-            background-color: #e8e8e8;
+            background-color: var(--color-border);
             z-index: 1;
         }
-        
-        /* 行程选项 */
-        .journey-options {
+
+        /* 特色模块 */
+        .accommodation-highlight {
+            background-color: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            border: 1px solid var(--color-border);
+            margin: var(--space-lg) 0;
+        }
+
+        .special-meal {
+            background-color: rgba(194, 166, 115, 0.05);
+            border-radius: var(--radius-md);
+            padding: var(--space-sm);
+            border-left: 3px solid var(--color-accent-gold);
+            margin: var(--space-sm) 0;
+        }
+
+        /* 贴士模块 */
+        .tips-box {
+            background-color: rgba(138, 155, 124, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            margin-top: var(--space-lg);
+            border: 1px solid rgba(138, 155, 124, 0.1);
+        }
+
+        .tips-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--color-accent-green);
+            margin-bottom: var(--space-sm);
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .journey-option {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            border: 2px solid #e8e8e8;
-            transition: all 0.3s;
+
+        .tips-list {
+            list-style: none;
         }
-        
-        .journey-option.active {
-            border-color: #8a9b7c;
-            background-color: #f0f7f0;
+
+        .tips-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            color: var(--color-text-secondary);
         }
-        
-        .journey-option h3 {
-            color: #1a1a1a;
-            margin-bottom: 8px;
-            font-size: 18px;
+
+        .tips-list li::before {
+            content: '·';
+            position: absolute;
+            left: 10px;
+            color: var(--color-accent-green);
+            font-size: 1.5rem;
+            line-height: 1;
         }
-        
-        .journey-duration {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .journey-highlight {
-            font-size: 14px;
-            color: #c2a673;
-            margin-top: 10px;
-        }
-        
+
         /* 页脚 */
-        .footer {
+        .site-footer {
+            padding: var(--space-lg) 0;
             text-align: center;
-            padding: 20px 0;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid #e8e8e8;
-            margin-top: 30px;
+            border-top: 1px solid var(--color-border);
+            margin-top: var(--space-xl);
+            color: var(--color-text-light);
+            font-size: 0.9rem;
         }
-        
-        .footer .highlight {
-            color: #8a9b7c;
-            font-weight: bold;
+
+        .footer-highlight {
+            color: var(--color-accent-green);
+            font-weight: 500;
             margin: 10px 0;
         }
-        
-        /* 响应式调整 */
-        @media (max-width: 480px) {
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px; /* 减小基准字体大小 */
+            }
+            
             body {
-                font-size: 16px;
+                padding-top: 70px;
+                font-size: 0.9rem;
             }
             
-            h1 {
-                font-size: 20px;
+            .site-header {
+                padding: 10px 0;
+                height: 70px;
             }
             
-            h2 {
-                font-size: 17px;
+            .header-container {
+                padding: 0 var(--space-sm);
+                height: 50px;
             }
             
-            .article-container {
-                padding: 0 12px;
+            .site-title {
+                font-size: 1.2rem;
+            }
+            
+            .site-title .sub {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+                margin-top: 0;
+                margin-bottom: var(--space-sm);
+                line-height: 1.3;
+            }
+            
+            .hero-section {
+                padding: var(--space-lg) 0 var(--space-md);
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: var(--space-md);
+                line-height: 1.5;
+            }
+            
+            .main-nav ul {
+                gap: var(--space-sm);
+            }
+            
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 2px 0;
+            }
+            
+            .date-range {
+                margin-bottom: var(--space-lg);
+                font-size: 0.8rem;
+                padding: 5px 15px;
+            }
+            
+            .selector-title {
+                font-size: 1rem;
+                margin-bottom: var(--space-md);
+            }
+            
+            .selector-title::before,
+            .selector-title::after {
+                width: 30px;
+            }
+            
+            .journey-cards {
+                gap: var(--space-sm);
+                margin-bottom: var(--space-lg);
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-card {
+                padding: var(--space-sm);
+            }
+            
+            .card-icon {
+                font-size: 1.6rem;
+                margin-bottom: 8px;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-duration {
+                font-size: 0.75rem;
+            }
+            
+            .card-desc {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+            
+            .card-highlight {
+                font-size: 0.7rem;
+                padding: 2px 8px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-intro {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .timeline {
+                padding-left: 15px;
+                margin: var(--space-lg) 0;
+            }
+            
+            .timeline::before {
+                left: 7px;
+            }
+            
+            .timeline-time {
+                position: relative;
+                left: 0;
+                top: 0;
+                margin-bottom: 8px;
+                display: inline-block;
+                min-width: auto;
+                font-size: 0.85rem;
+                padding: 4px 8px;
+            }
+            
+            .timeline-content {
+                margin-left: 0;
+                padding: var(--space-sm);
+            }
+            
+            .timeline-content::before {
+                display: none;
+            }
+            
+            .timeline-title {
+                font-size: 1rem;
+            }
+            
+            .timeline-desc {
+                font-size: 0.85rem;
+            }
+            
+            .timeline-highlight {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+            
+            .activity-tag {
+                font-size: 0.65rem;
+                padding: 2px 6px;
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+            
+            .activity-time-note {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+            
+            .day-separator {
+                margin: var(--space-lg) 0;
+            }
+            
+            .day-label {
+                font-size: 1.1rem;
+                padding: 8px 20px;
+            }
+            
+            .tips-box {
+                padding: var(--space-sm);
+            }
+            
+            .tips-title {
+                font-size: 1.1rem;
+            }
+            
+            .tips-list li {
+                font-size: 0.85rem;
+                padding: 6px 0 6px 25px;
+            }
+            
+            [style*="color: #c62828"] {
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
+            
+            body {
+                padding-top: 65px;
+                font-size: 0.85rem;
+            }
+            
+            .site-header {
+                height: 65px;
+                padding: 8px 0;
+            }
+            
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .site-title {
+                font-size: 1rem;
+            }
+            
+            .main-nav ul {
+                gap: 6px;
+            }
+            
+            .nav-link {
+                font-size: 0.75rem;
+            }
+            
+            .journey-card {
+                padding: 10px;
+            }
+            
+            .card-title {
+                font-size: 1rem;
+            }
+            
+            .card-desc {
+                font-size: 0.8rem;
+            }
+            
+            .timeline-item {
+                margin-bottom: var(--space-sm);
+            }
+            
+            .timeline-content {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            html {
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .site-title {
+                font-size: 0.9rem;
+            }
+            
+            .nav-link {
+                font-size: 0.7rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="article-container">
-        <!-- 文章标题 -->
-        <h1>年味到底是什么味？</h1>
-        
-        <p class="intro">回忆里的新年，是各种香气混在一块儿的味。过一个香香的大年，在鲲鹏福地，把年过得具体。</p>
-        
-        <div class="section-divider">
-            <span>2026年2月17日 - 2月23日</span>
+    <!-- 顶栏导航 -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="site-title">
+                鲲鹏福地<span class="sub"> | 香年时序</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#journeys" class="nav-link active">时序选择</a></li>
+                    <li><a href="#details" class="nav-link">行程详述</a></li>
+                    <li><a href="#tips" class="nav-link">游园贴士</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <!-- 引言部分 -->
-        <p>春节，是一年中最具仪式感的时刻。在鲲鹏福地，我们用香气串联起年味的每一个细节，让传统与创新交融，带你体验一场别开生面的"香年"之旅。</p>
-        
-        <p>从竹竿舞的欢快节奏，到气味市集的草本芬芳；从水月戏台的悠扬歌声，到草木工坊的匠心手作——这里的一切，都围绕"香"展开，却又不止于香。</p>
-        
-        <div class="divider"></div>
-        
-        <!-- 行程选择 -->
-        <h2>择一时序游园</h2>
-        <p>根据你的时间和兴趣，我们为你设计了四种不同时长的游园时序，从2小时精华体验到两日深度游，总有一款适合你。</p>
-        
-        <div class="journey-options">
-            <div class="journey-option active">
-                <h3>2小时精华</h3>
-                <div class="journey-duration">快速体验版</div>
-                <p>时间有限者的精粹之选，体验最核心的年味与香气。</p>
-                <div class="journey-highlight">竹竿舞 · 市集 · 手作坊</div>
-            </div>
-            
-            <div class="journey-option">
-                <h3>半日漫游</h3>
-                <div class="journey-duration">下午场体验</div>
-                <p>半日沉浸，从容感受文化导览、手作与表演的和谐韵律。</p>
-                <div class="journey-highlight">国兰展 · 戏台 · 村游</div>
-            </div>
-            
-            <div class="journey-option">
-                <h3>一日完整体验</h3>
-                <div class="journey-duration">全天沉浸</div>
-                <p>从晨至昏，完整体验所有活动，让香气浸透一整天的记忆。</p>
-                <div class="journey-highlight">全天活动 · 夜游花神 · 书巢</div>
-            </div>
-            
-            <div class="journey-option">
-                <h3>两日深度游</h3>
-                <div class="journey-duration">住宿+特色餐饮</div>
-                <p>宿于庭院，晨练八段锦，品特色餐饮，深度探索每一缕香气。</p>
-                <div class="journey-highlight">宿集 · 露营烤肉 · 窑鸡 · 万象俱乐部</div>
-            </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section container">
+        <h1 class="hero-title">年味到底是什么味？</h1>
+        <p class="hero-subtitle">回忆里的新年，是各种香气混在一块儿的味。过一个香香的大年，在鲲鹏福地，把年过得具体。</p>
+        <div class="date-range">2026年2月17日 - 2月23日</div>
+    </section>
+
+    <!-- 行程选择器 -->
+    <section id="journeys" class="journey-selector container">
+        <h2 class="selector-title">择一时序游园</h2>
+        <div class="journey-cards">
+            <a href="#2h" class="journey-card active" data-journey="2h">
+                <div class="card-icon">⏳</div>
+                <h3 class="card-title">2小时精华</h3>
+                <div class="card-duration">快速体验版</div>
+                <p class="card-desc">时间有限者的精粹之选，体验最核心的年味与香气。</p>
+                <div class="card-highlight">竹竿舞 · 市集 · 手作坊</div>
+            </a>
+            <a href="#half" class="journey-card" data-journey="half">
+                <div class="card-icon">🌄</div>
+                <h3 class="card-title">半日漫游</h3>
+                <div class="card-duration">下午场体验</div>
+                <p class="card-desc">半日沉浸，从容感受文化导览、手作与表演的和谐韵律。</p>
+                <div class="card-highlight">国兰展 · 戏台 · 村游</div>
+            </a>
+            <a href="#full" class="journey-card" data-journey="full">
+                <div class="card-icon">🌕</div>
+                <h3 class="card-title">一日完整体验</h3>
+                <div class="card-duration">全天沉浸</div>
+                <p class="card-desc">从晨至昏，完整体验所有活动，让香气浸透一整天的记忆。</p>
+                <div class="card-highlight">全天活动 · 夜游花神 · 书巢</div>
+            </a>
+            <a href="#2days" class="journey-card" data-journey="2days">
+                <div class="card-icon">🏮</div>
+                <h3 class="card-title">两日深度游</h3>
+                <div class="card-duration">住宿+特色餐饮</div>
+                <p class="card-desc">宿于庭院，晨练八段锦，品特色餐饮，深度探索每一缕香气。</p>
+                <div class="card-highlight">宿集 · 露营烤肉 · 窑鸡 · 万象俱乐部</div>
+            </a>
         </div>
-        
-        <div class="divider"></div>
-        
-        <!-- 2小时精华行程 -->
-        <h2>2小时精华时序</h2>
-        <p><span class="highlight">适合人群：</span>时间紧张但想体验春节精华的游客</p>
-        <p><span class="highlight">行程时间：</span>上午10:30-12:30 或 下午14:30-16:30</p>
-        <p>本行程精选最具代表性的活动，让您在短时间内感受最浓的年味和香气文化。</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-time">10:30-10:45 | 抵达与入园</div>
-                <div class="timeline-content">
-                    <p>抵达鲲鹏福地，领取园区地图，熟悉环境。</p>
-                    <p><span class="highlight">园区开放时间：</span>10:00-21:00</p>
+    </section>
+
+    <!-- 行程详情区域 -->
+    <section id="details" class="journey-details container">
+        <!-- 2小时行程 -->
+        <div id="2h" class="journey-section active">
+            <div class="section-header">
+                <h2 class="section-title">2小时精华时序</h2>
+                <p class="section-intro">适合时间紧张但想体验春节精华的游客。本行程精选最具代表性的活动，让您在短时间内感受最浓的年味和香气文化。<br><strong>行程时间：上午10:30-12:30 或 下午14:30-16:30</strong></p>
+            </div>
+            
+            <div class="timeline">
+                <!-- 上午场选项 -->
+                <div class="timeline-item">
+                    <div class="timeline-time">10:30-10:45</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-map-signs"></i> 抵达与入园</h3>
+                        <p class="timeline-desc">抵达鲲鹏福地，领取园区地图，熟悉环境。</p>
+                        <div class="activity-time-note">园区开放时间：10:00-21:00</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">10:45-11:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-music"></i> 竹竿舞迎客礼</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-performance">表演</span><strong>竹竿舞迎客礼</strong>，领取春日红包，感受热闹的春节氛围。</p>
+                        <div class="timeline-highlight">
+                            <strong>互动体验：</strong>大胆参与竹竿舞，这是融入节日氛围最快的方式。
+                            <div class="activity-time-note">活动时间：10:45-11:30 | 地点：主入口广场</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30-12:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-eye"></i> 气味市集体验</h3>
+                        <p class="timeline-desc">前往<span class="activity-tag tag-market">市集</span><strong>气味市集</strong>，快速体验各种药材和香料的香气。</p>
+                        <div class="timeline-highlight">
+                            <strong>高效体验：</strong>重点体验3-5种最具特色的香料。
+                            <div class="activity-time-note">开放时间：10:00-20:00 | 地点：市集广场</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00-12:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hands"></i> 草木工坊速成体验</h3>
+                        <p class="timeline-desc">前往<span class="activity-tag tag-workshop">手作</span><strong>草木工坊</strong>，选择一个最快捷的手作项目体验。</p>
+                        <div class="timeline-highlight">
+                            <strong>推荐项目：</strong>制作艾草香囊或滚印红包，把年味带回家。
+                            <div class="activity-time-note">开放时间：10:00-17:00 | 地点：手作工坊区</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：草木工坊17:00结束，请合理安排时间</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="timeline-item">
-                <div class="timeline-time">10:45-11:30 | 竹竿舞迎客礼</div>
-                <div class="timeline-content">
-                    <p>参加<span class="tag tag-performance">表演</span><strong>竹竿舞迎客礼</strong>，领取春日红包，感受热闹的春节氛围。</p>
-                    <p><span class="highlight">互动体验：</span>大胆参与竹竿舞，这是融入节日氛围最快的方式。</p>
-                    <p><span class="highlight">活动地点：</span>主入口广场</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">11:30-12:00 | 气味市集体验</div>
-                <div class="timeline-content">
-                    <p>前往<span class="tag tag-market">市集</span><strong>气味市集</strong>，快速体验各种药材和香料的香气。</p>
-                    <p><span class="highlight">高效体验：</span>重点体验3-5种最具特色的香料。</p>
-                    <p><span class="highlight">开放时间：</span>10:00-20:00</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">12:00-12:30 | 草木工坊速成体验</div>
-                <div class="timeline-content">
-                    <p>前往<span class="tag tag-workshop">手作</span><strong>草木工坊</strong>，选择一个最快捷的手作项目体验。</p>
-                    <p><span class="highlight">推荐项目：</span>制作艾草香囊或滚印红包，把年味带回家。</p>
-                    <p><span class="important">注意：草木工坊17:00结束，请合理安排时间</span></p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="tip-box">
-            <div class="tip-title">💡 2小时行程小贴士</div>
-            <ul class="tip-list">
-                <li><strong>时间选择：</strong>上午场可体验竹竿舞迎客礼；下午场可体验村游导览</li>
-                <li><strong>提前规划：</strong>提前在线购票，节省入园时间</li>
-                <li><strong>重点体验：</strong>选择1-2个核心活动深度体验，不要贪多</li>
-                <li><strong>亲子选择：</strong>如果带孩子，可选择兔Luck公园（10:00-17:00）</li>
-            </ul>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <!-- 半日漫游行程 -->
-        <h2>半日漫游时序</h2>
-        <p><span class="highlight">适合人群：</span>有半天时间，希望深入体验春节文化和香气主题的游客</p>
-        <p><span class="highlight">行程时间：</span>下午13:00-17:00</p>
-        <p>本行程安排在下午，包含导览、手作、表演和市集体验，平衡了文化学习和互动乐趣。</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-time">13:00-13:30 | 抵达与初体验</div>
-                <div class="timeline-content">
-                    <p>抵达鲲鹏福地，入园后先参观<span class="tag tag-performance">展览</span><strong>国兰展</strong>，感受兰花的优雅。</p>
-                    <p><span class="highlight">展览地点：</span>立体农业区域</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">13:30-14:15 | 气味市集探索</div>
-                <div class="timeline-content">
-                    <p>自由探索<span class="tag tag-market">市集</span><strong>气味市集</strong>，与摊主交流草本知识，体验香料试闻。</p>
-                    <p><span class="highlight">深度体验：</span>重点了解3-5种春节常用香料及其寓意。</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">14:15-15:30 | 水月戏台 & 巡游花车</div>
-                <div class="timeline-content">
-                    <p>前往水上舞台，观赏<span class="tag tag-performance">表演</span><strong>水月戏台</strong>的春日药香主题对唱表演。</p>
-                    <p><span class="highlight">最佳位置：</span>提前5-10分钟到达，选择靠近舞台中央的位置。</p>
-                    <p><span class="important">注意：14:00开始，建议13:50前到达选好位置</span></p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">15:30-16:00 | 村游（下午场）</div>
-                <div class="timeline-content">
-                    <p>参加<span class="tag tag-tour">导览</span><strong>村游（下午场）</strong>，深入了解传统民居、人文生活和春节民俗。</p>
-                    <p><span class="important">注意：需提前到达集合点，活动准时开始</span></p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">16:00-17:00 | 草木工坊手作体验</div>
-                <div class="timeline-content">
-                    <p>参加<span class="tag tag-workshop">手作</span><strong>草木工坊</strong>，选择1-2个手作项目深度体验。</p>
-                    <p><span class="highlight">推荐组合：</span>滚印红包（20分钟）+ 制作艾草锤（40分钟）。</p>
-                    <p><span class="important">注意：草木工坊17:00结束，请合理安排时间</span></p>
-                </div>
+            <div class="tips-box">
+                <h3 class="tips-title"><i class="fas fa-lightbulb"></i> 2小时行程小贴士</h3>
+                <ul class="tips-list">
+                    <li><strong>时间选择：</strong>上午场可体验竹竿舞迎客礼；下午场可体验村游导览</li>
+                    <li><strong>提前规划：</strong>提前在线购票，节省入园时间</li>
+                    <li><strong>重点体验：</strong>选择1-2个核心活动深度体验，不要贪多</li>
+                    <li><strong>手作选择：</strong>草木工坊17:00结束，请合理安排时间</li>
+                    <li><strong>亲子选择：</strong>如果带孩子，可选择兔Luck公园（10:00-17:00）</li>
+                </ul>
             </div>
         </div>
         
-        <div class="tip-box">
-            <div class="tip-title">💡 半日行程小贴士</div>
-            <ul class="tip-list">
-                <li><strong>时间安排：</strong>本行程专为下午设计，充分利用下午活动时段</li>
-                <li><strong>提前到达：</strong>水月戏台表演14:00开始，建议13:50前到达选好位置</li>
-                <li><strong>活动衔接：</strong>村游15:00准时开始，需提前到达集合点</li>
-                <li><strong>香室体验：</strong>可在话月楼的香室鼻子浮雕墙前深呼吸，开启香气之旅</li>
-                <li><strong>午餐安排：</strong>可在13:30-14:15期间在市集周边用餐</li>
-            </ul>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <!-- 一日完整体验 -->
-        <h2>一日完整体验时序</h2>
-        <p><span class="highlight">适合人群：</span>有全天时间，希望完整体验所有春节活动和香气文化的游客</p>
-        <p><span class="highlight">行程时间：</span>上午10:00-晚上21:00</p>
-        <p>本行程涵盖日间和晚间活动，让您从早到晚沉浸在年味和香气中，获得最完整的春节体验。</p>
-        
-        <div class="card">
-            <div class="card-title">🌅 上午活动（10:00-12:30）</div>
-            <p><strong>10:00-10:30</strong> 入园与初探</p>
-            <p><strong>10:45-11:30</strong> 竹竿舞迎客礼（主入口广场）</p>
-            <p><strong>11:30-12:30</strong> 村游（上午场，古庄游览线）</p>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">🍽️ 午餐与休闲（12:30-14:00）</div>
-            <p><strong>12:30-14:00</strong> 午餐与自由参观</p>
-            <p><span class="highlight">午餐推荐：</span>尝试园区特色春节套餐，或前往气味市集周边品尝传统小吃</p>
-            <p><span class="highlight">自由参观：</span>国兰展（立体农业区域，10:00-21:00开放）</p>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">🎭 下午活动（14:00-17:00）</div>
-            <p><strong>14:00-15:30</strong> 水月戏台 & 巡游花车（水上舞台+巡游路线）</p>
-            <p><strong>15:30-17:00</strong> 草木工坊深度手作（手作工坊区）</p>
-            <p><span class="important">注意：草木工坊17:00结束，请合理安排时间</span></p>
-        </div>
-        
-        <div class="card">
-            <div class="card-title">🌙 晚间活动（17:00-21:00）</div>
-            <p><strong>17:00-19:00</strong> 晚餐与气味市集（市集广场，20:00结束）</p>
-            <p><strong>19:00-19:45</strong> 掌灯夜游：十二花神（古庄夜景路线）</p>
-            <p><strong>20:00-20:45</strong> 书巢放映会（观看纪录片《惟有香如故》）</p>
-            <p><strong>20:45-21:00</strong> 纪念品选购与离园</p>
-        </div>
-        
-        <div class="tip-box">
-            <div class="tip-title">💡 一日行程小贴士</div>
-            <ul class="tip-list">
-                <li><strong>时间管理：</strong>一日行程时间紧凑，请严格按照时间表安排</li>
-                <li><strong>活动预约：</strong>草木工坊等热门活动建议提前预约</li>
-                <li><strong>用餐安排：</strong>午餐和晚餐可以错峰，避免排队等待</li>
-                <li><strong>夜间保暖：</strong>夜间温度较低，记得携带外套参加夜游活动</li>
-                <li><strong>香室体验：</strong>可在话月楼的香室鼻子浮雕墙前深呼吸，开启香气之旅</li>
-                <li><strong>交通安排：</strong>晚间活动结束后，提前安排好返程交通</li>
-            </ul>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <!-- 两日深度游 -->
-        <h2>两日深度游时序</h2>
-        <p><span class="highlight">适合人群：</span>希望深度体验春节文化和香气主题，并享受悠闲假期的游客</p>
-        <p><span class="highlight">行程时间：</span>第一天 14:00 - 第二天 17:00</p>
-        <p><span class="highlight">餐饮亮点：</span>露营烤肉晚餐 + 窑鸡套餐午餐（需提前预订）</p>
-        
-        <div class="card">
-            <div class="card-title">🏨 住宿特色</div>
-            <p><strong>鲲鹏宿集：</strong>传统中式庭院住宿，融合现代舒适与传统文化元素，每间客房配备天然草药香薰。</p>
-            <p><span class="highlight">入住时间：</span>第一天14:00后</p>
-            <p><span class="highlight">退房时间：</span>第二天13:00前（行李可寄存）</p>
-            <p><span class="important">重要：鲲鹏宿集需提前预订</span></p>
-        </div>
-        
-        <div class="section-divider">
-            <span>第一天 · 抵达与初体验</span>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-time">14:00-15:00 | 抵达与入住</div>
-                <div class="timeline-content">
-                    <p>抵达鲲鹏福地，办理入住鲲鹏宿集手续，安顿行李。</p>
+        <!-- 半日行程 -->
+        <div id="half" class="journey-section">
+            <div class="section-header">
+                <h2 class="section-title">半日漫游时序</h2>
+                <p class="section-intro">适合有半天时间，希望深入体验春节文化和香气主题的游客。本行程安排在下午，包含导览、手作、表演和市集体验，平衡了文化学习和互动乐趣。<br><strong>行程时间：下午13:00-17:00</strong></p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00-13:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-door-open"></i> 抵达与初体验</h3>
+                        <p class="timeline-desc">抵达鲲鹏福地，入园后先参观<span class="activity-tag tag-exhibition">展览</span><strong>国兰展</strong>，感受兰花的优雅。</p>
+                        <div class="timeline-highlight">
+                            <strong>深度体验：</strong>在香室的鼻子浮雕墙前深呼吸，开启香气之旅。
+                            <div class="activity-time-note">开放时间：10:00-21:00 | 地点：文化展馆</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">13:30-14:15</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-shopping-basket"></i> 气味市集探索</h3>
+                        <p class="timeline-desc">自由探索<span class="activity-tag tag-market">市集</span><strong>气味市集</strong>，与摊主交流草本知识，体验香料试闻。</p>
+                        <div class="timeline-highlight">
+                            <strong>深度体验：</strong>重点了解3-5种春节常用香料及其寓意。
+                            <div class="activity-time-note">开放时间：10:00-20:00 | 地点：市集广场</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">14:15-15:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-theater-masks"></i> 水月戏台 & 巡游花车</h3>
+                        <p class="timeline-desc">前往水上舞台，观赏<span class="activity-tag tag-performance">表演</span><strong>水月戏台</strong>的春日药香主题对唱表演。</p>
+                        <div class="timeline-highlight">
+                            <strong>最佳位置：</strong>提前5-10分钟到达，选择靠近舞台中央的位置。
+                            <div class="activity-time-note">活动时间：14:00-15:30 | 地点：水上舞台+巡游路线</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：14:00开始，建议13:50前到达选好位置</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30-16:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hiking"></i> 村游（下午场）</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-tour">导览</span><strong>村游（下午场）</strong>，深入了解传统民居、人文生活和春节民俗。</p>
+                        <div class="timeline-highlight">
+                            <strong>深度体验：</strong>跟随导游提问互动，了解当地特有的春节传统。
+                            <div class="activity-time-note">活动时间：15:00-15:30 | 地点：古庄游览线</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：需提前到达集合点，活动准时开始</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">16:00-17:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hands"></i> 草木工坊手作体验</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-workshop">手作</span><strong>草木工坊</strong>，选择1-2个手作项目深度体验。</p>
+                        <div class="timeline-highlight">
+                            <strong>推荐组合：</strong>滚印红包（20分钟）+ 制作艾草锤（40分钟）。
+                            <div class="activity-time-note">开放时间：10:00-17:00 | 地点：手作工坊区</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：草木工坊17:00结束，请合理安排时间</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="timeline-item">
-                <div class="timeline-time">15:00-15:30 | 村游（下午场）</div>
-                <div class="timeline-content">
-                    <p>参加<span class="tag tag-tour">导览</span><strong>村游（下午场）</strong>，深入了解传统民居、人文生活和春节民俗。</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">15:30-17:00 | 草木工坊深度体验</div>
-                <div class="timeline-content">
-                    <p>参加<span class="tag tag-workshop">手作</span><strong>草木工坊</strong>，从容体验2-3个手作项目。</p>
-                    <p><span class="important">注意：草木工坊17:00结束，第一天可以充分体验</span></p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">17:30-19:00 | 露营烤肉晚餐</div>
-                <div class="timeline-content">
-                    <p>在宿集专属露营区享用<span class="tag tag-food">特色餐饮</span><strong>露营烤肉晚餐</strong>。</p>
-                    <p><span class="highlight">露营烤肉特色：</span>户外星空下的特色烤肉体验</p>
-                    <p><span class="important">重要：需提前预订，确保食材准备</span></p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">19:00-19:45 | 掌灯夜游：十二花神</div>
-                <div class="timeline-content">
-                    <p>参加<span class="tag tag-performance">表演</span><strong>掌灯夜游</strong>，观赏"十二花神"手持走马灯的巡游表演。</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">20:00-20:45 | 书巢放映会</div>
-                <div class="timeline-content">
-                    <p>前往<span class="tag tag-performance">放映</span><strong>书巢</strong>，观看纪录片《惟有香如故》。</p>
-                </div>
+            <div class="tips-box">
+                <h3 class="tips-title"><i class="fas fa-lightbulb"></i> 半日行程小贴士</h3>
+                <ul class="tips-list">
+                    <li><strong>时间安排：</strong>本行程专为下午设计，充分利用下午活动时段</li>
+                    <li><strong>提前到达：</strong>水月戏台表演14:00开始，建议13:50前到达选好位置</li>
+                    <li><strong>活动衔接：</strong>村游15:00准时开始，需提前到达集合点</li>
+                    <li><strong>手作时间：</strong>草木工坊17:00结束，请合理安排时间</li>
+                    <li><strong>午餐安排：</strong>可在13:30-14:15期间在市集周边用餐</li>
+                    <li><strong>亲子调整：</strong>如果带孩子，可将部分时间替换为兔Luck公园（10:00-17:00）</li>
+                </ul>
             </div>
         </div>
         
-        <div class="section-divider">
-            <span>第二天 · 养生体验与深度探索</span>
+        <!-- 一日行程 -->
+        <div id="full" class="journey-section">
+            <div class="section-header">
+                <h2 class="section-title">一日完整体验时序</h2>
+                <p class="section-intro">适合有全天时间，希望完整体验所有春节活动和香气文化的游客。本行程涵盖日间和晚间活动，让您从早到晚沉浸在年味和香气中，获得最完整的春节体验。<br><strong>行程时间：上午10:00-晚上21:00</strong></p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00-10:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-door-open"></i> 入园与初探</h3>
+                        <p class="timeline-desc">准时入园，领取园区地图和活动时间表，规划全天行程。</p>
+                        <div class="activity-time-note">园区开放时间：10:00-21:00</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">10:45-11:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-music"></i> 竹竿舞迎客礼</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-performance">表演</span><strong>竹竿舞迎客礼</strong>，领取春日红包，融入节日氛围。</p>
+                        <div class="activity-time-note">活动时间：10:45-11:30 | 地点：主入口广场</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30-12:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hiking"></i> 村游（上午场）</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-tour">导览</span><strong>村游（上午场）</strong>，深入了解古庄历史、建筑和春节传统。</p>
+                        <div class="timeline-highlight">
+                            <strong>深度互动：</strong>积极向导游提问，记录有趣的民俗故事。
+                            <div class="activity-time-note">活动时间：11:00-11:30 | 地点：古庄游览线</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：需提前到达集合点，活动准时开始</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">12:30-14:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-utensils"></i> 午餐与自由参观</h3>
+                        <p class="timeline-desc">在园区餐厅或美食区享用午餐，之后自由参观<span class="activity-tag tag-exhibition">展览</span><strong>国兰展</strong>。</p>
+                        <div class="timeline-highlight">
+                            <strong>午餐推荐：</strong>尝试园区特色春节套餐，或前往气味市集周边品尝传统小吃。
+                            <div class="activity-time-note">国兰展开放时间：10:00-21:00 | 地点：文化展馆</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00-15:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-theater-masks"></i> 水月戏台 & 巡游花车</h3>
+                        <p class="timeline-desc">观赏<span class="activity-tag tag-performance">表演</span><strong>水月戏台</strong>和花车巡游表演。</p>
+                        <div class="timeline-highlight">
+                            <strong>互动体验：</strong>与巡游花车互动，感受童话般的乌托邦氛围。
+                            <div class="activity-time-note">活动时间：14:00-15:30 | 地点：水上舞台+巡游路线</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30-17:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hands"></i> 草木工坊深度手作</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-workshop">手作</span><strong>草木工坊</strong>，选择2-3个手作项目深度体验。</p>
+                        <div class="timeline-highlight">
+                            <strong>推荐组合：</strong>版画/滚印红包（30分钟）+ 漆扇/草木团扇（45分钟）。
+                            <div class="activity-time-note">开放时间：10:00-17:00 | 地点：手作工坊区</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：草木工坊17:00结束，请合理安排时间</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00-19:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-utensils"></i> 晚餐与气味市集</h3>
+                        <p class="timeline-desc">在园区餐厅或周边餐馆享用晚餐，之后深度体验<span class="activity-tag tag-market">市集</span><strong>气味市集</strong>。</p>
+                        <div class="timeline-highlight">
+                            <strong>晚餐推荐：</strong>尝试园区春节主题晚餐，或前往古庄附近寻找当地特色菜肴。
+                            <div class="activity-time-note">气味市集开放时间：10:00-20:00 | 地点：市集广场</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00-19:45</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-torii-gate"></i> 掌灯夜游：十二花神</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-performance">表演</span><strong>掌灯夜游</strong>，观赏"十二花神"手持走马灯的巡游表演。</p>
+                        <div class="timeline-highlight">
+                            <strong>最佳体验：</strong>提前到达巡游路线起点，与花神互动合影，领取新春好运红包。
+                            <div class="activity-time-note">活动时间：19:00-19:45 | 地点：古庄夜景路线</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00-20:45</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-film"></i> 书巢放映会</h3>
+                        <p class="timeline-desc">前往<span class="activity-tag tag-exhibition">放映</span><strong>书巢</strong>，观看纪录片《惟有香如故》。</p>
+                        <div class="timeline-highlight">
+                            <strong>完美收官：</strong>在香道纪录片中沉淀一天的热闹，带着宁静的心境结束旅程。
+                            <div class="activity-time-note">活动时间：20:00-20:45 | 地点：书巢</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">20:45-21:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-shopping-bag"></i> 纪念品选购与离园</h3>
+                        <p class="timeline-desc">如有需要，可在气味市集选购纪念品，然后离园结束完美的一天。</p>
+                        <div class="activity-time-note">园区关闭时间：21:00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tips-box">
+                <h3 class="tips-title"><i class="fas fa-lightbulb"></i> 一日行程小贴士</h3>
+                <ul class="tips-list">
+                    <li><strong>时间管理：</strong>一日行程时间紧凑，请严格按照时间表安排</li>
+                    <li><strong>活动预约：</strong>草木工坊等热门活动建议提前预约</li>
+                    <li><strong>用餐安排：</strong>午餐和晚餐可以错峰，避免排队等待</li>
+                    <li><strong>夜间保暖：</strong>夜间温度较低，记得携带外套参加夜游活动</li>
+                    <li><strong>时间限制：</strong>草木工坊17:00结束，气味市集20:00结束，请注意时间</li>
+                    <li><strong>亲子调整：</strong>如果带孩子，可将部分时间替换为兔Luck公园（10:00-17:00）</li>
+                    <li><strong>交通安排：</strong>晚间活动结束后，提前安排好返程交通</li>
+                </ul>
+            </div>
         </div>
         
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-time">8:00-9:00 | 晨间八段锦</div>
-                <div class="timeline-content">
-                    <p>在<span class="tag tag-performance">养生</span><strong>万象俱乐部草坪</strong>参加<strong>八段锦</strong>晨练，唤醒身心。</p>
+        <!-- 两日行程 -->
+        <div id="2days" class="journey-section">
+            <div class="section-header">
+                <h2 class="section-title">两日深度游时序</h2>
+                <p class="section-intro">适合希望深度体验春节文化和香气主题，并享受悠闲假期的游客。入住鲲鹏宿集，体验传统养生八段锦、特色早餐、中草药DIY手工和下午茶，品尝特色露营烤肉和窑鸡套餐，从容不迫地感受所有春节活动。<br><strong>行程时间：第一天 14:00 - 第二天 17:00</strong><br><strong>餐饮亮点：露营烤肉晚餐 + 窑鸡套餐午餐</strong></p>
+            </div>
+            
+            <!-- 第一天行程 -->
+            <div class="day-separator">
+                <div class="day-label">第一天 · 抵达与初体验</div>
+            </div>
+            
+            <div class="accommodation-highlight">
+                <h3><i class="fas fa-hotel"></i> 入住鲲鹏宿集</h3>
+                <p>鲲鹏宿集提供传统中式庭院住宿，融合现代舒适与传统文化元素，让您在古朴雅致的环境中放松身心。</p>
+                <div class="special-meal">
+                    <strong><i class="fas fa-utensils"></i> 餐饮特色：</strong> 宿集提供露营烤肉晚餐和窑鸡套餐午餐，需提前预订。
                 </div>
             </div>
             
-            <div class="timeline-item">
-                <div class="timeline-time">9:00-10:00 | 特色养生早餐</div>
-                <div class="timeline-content">
-                    <p>在宿集餐厅享用<span class="tag tag-food">餐饮</span><strong>特色养生早餐</strong>。</p>
-                    <p><span class="highlight">早餐特色：</span>草药粥、养生茶点、当地特色小吃</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00-15:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hotel"></i> 抵达与入住</h3>
+                        <p class="timeline-desc">抵达鲲鹏福地，办理<span class="activity-tag tag-accommodation">住宿</span><strong>鲲鹏宿集</strong>入住手续，安顿行李。</p>
+                        <div class="timeline-highlight">
+                            <strong>住宿特色：</strong>传统中式庭院，每间客房配备天然草药香薰。
+                            <div class="activity-time-note">入住时间：14:00后 | 地点：鲲鹏宿集</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00-15:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hiking"></i> 村游（下午场）</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-tour">导览</span><strong>村游（下午场）</strong>，深入了解传统民居、人文生活和春节民俗。</p>
+                        <div class="timeline-highlight">
+                            <strong>深度体验：</strong>跟随导游提问互动，了解当地特有的春节传统和建筑特色。
+                            <div class="activity-time-note">活动时间：15:00-15:30 | 地点：古庄游览线</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30-17:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-hands"></i> 草木工坊深度体验</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-workshop">手作</span><strong>草木工坊</strong>，从容体验2-3个手作项目。</p>
+                        <div class="timeline-highlight">
+                            <strong>推荐组合：</strong>版画/滚印红包（30分钟）+ 漆扇/草木团扇（45分钟）+ 艾草锤制作（30分钟）。
+                            <div class="activity-time-note">开放时间：10:00-17:00 | 地点：手作工坊区</div>
+                            <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">注意：草木工坊17:00结束，第一天可以充分体验</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">17:30-19:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-campground"></i> 露营烤肉晚餐</h3>
+                        <p class="timeline-desc">在宿集专属露营区享用<span class="activity-tag tag-food">特色餐饮</span><strong>露营烤肉晚餐</strong>。</p>
+                        <div class="special-meal">
+                            <strong>露营烤肉特色：</strong>户外星空下的特色烤肉体验，提供多种套餐选择。
+                        </div>
+                        <div class="activity-time-note">晚餐时间：17:30-19:00 | 地点：鲲鹏宿集露营区</div>
+                        <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">重要：需提前预订，确保食材准备</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00-19:45</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-torii-gate"></i> 掌灯夜游：十二花神</h3>
+                        <p class="timeline-desc">参加<span class="activity-tag tag-performance">表演</span><strong>掌灯夜游</strong>，观赏"十二花神"手持走马灯的巡游表演。</p>
+                        <div class="timeline-highlight">
+                            <strong>最佳体验：</strong>提前到达巡游路线起点，与花神互动合影，领取新春好运红包。
+                            <div class="activity-time-note">活动时间：19:00-19:45 | 地点：古庄夜景路线</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00-20:45</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-film"></i> 书巢放映会</h3>
+                        <p class="timeline-desc">前往<span class="activity-tag tag-exhibition">放映</span><strong>书巢</strong>，观看纪录片《惟有香如故》。</p>
+                        <div class="timeline-highlight">
+                            <strong>文化体验：</strong>在香道纪录片中沉淀一天的热闹，深入了解香气文化。
+                            <div class="activity-time-note">活动时间：20:00-20:45 | 地点：书巢</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">21:00-22:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-wine-glass-alt"></i> 宿集休息</h3>
+                        <p class="timeline-desc">返回鲲鹏宿集，享受静谧的夜晚。</p>
+                        <div class="timeline-highlight">
+                            <strong>宿集特色：</strong>晚间提供草药安神茶，帮助放松身心，提高睡眠质量。
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="timeline-item">
-                <div class="timeline-time">10:00-12:00 | 中草药DIY手工体验</div>
-                <div class="timeline-content">
-                    <p>在<span class="tag tag-workshop">手作</span><strong>万象俱乐部</strong>参加<strong>中草药DIY手工体验</strong>。</p>
-                    <p><span class="highlight">特色体验：</span>制作个性化中草药香囊、草药皂或草药茶包</p>
+            <!-- 第二天行程 -->
+            <div class="day-separator">
+                <div class="day-label">第二天 · 养生体验与深度探索</div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">8:00-9:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-spa"></i> 晨间八段锦</h3>
+                        <p class="timeline-desc">在<span class="activity-tag tag-wellness">养生</span><strong>万象俱乐部草坪</strong>参加<strong>八段锦</strong>晨练，唤醒身心。</p>
+                        <div class="timeline-highlight">
+                            <strong>养生体验：</strong>由专业导师带领，在清晨的新鲜空气中练习传统养生功法。
+                            <div class="activity-time-note">活动时间：8:00-9:00 | 地点：万象俱乐部草坪</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00-10:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-coffee"></i> 特色养生早餐</h3>
+                        <p class="timeline-desc">在宿集餐厅享用<span class="activity-tag tag-food">餐饮</span><strong>特色养生早餐</strong>。</p>
+                        <div class="timeline-highlight">
+                            <strong>早餐特色：</strong>草药粥、养生茶点、当地特色小吃，搭配时令水果。
+                            <div class="activity-time-note">早餐时间：9:00-10:00 | 地点：鲲鹏宿集餐厅</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00-12:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-leaf"></i> 中草药DIY手工体验</h3>
+                        <p class="timeline-desc">在<span class="activity-tag tag-workshop">手作</span><strong>万象俱乐部</strong>参加<strong>中草药DIY手工体验</strong>。</p>
+                        <div class="timeline-highlight">
+                            <strong>特色体验：</strong>制作个性化中草药香囊、草药皂或草药茶包，了解中草药的配伍原理。
+                            <div class="activity-time-note">活动时间：10:00-12:00 | 地点：万象俱乐部</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">12:30-14:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-drumstick-bite"></i> 窑鸡套餐午餐</h3>
+                        <p class="timeline-desc">享用宿集特色<span class="activity-tag tag-food">餐饮</span><strong>窑鸡套餐午餐</strong>，之后办理退房手续。</p>
+                        <div class="special-meal">
+                            <strong>窑鸡套餐特色：</strong>传统土窑烤制的特色美食，提供多种套餐选择。
+                        </div>
+                        <div class="activity-time-note">午餐时间：12:30-14:00 | 退房时间：13:00前，行李可寄存</div>
+                        <div style="color: #c62828; font-size: 0.9rem; margin-top: 8px; font-weight: 500;">重要：需提前预订，确保烤制时间</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00-15:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-shopping-basket"></i> 气味市集深度探索</h3>
+                        <p class="timeline-desc">深度探索<span class="activity-tag tag-market">市集</span><strong>气味市集</strong>，与摊主深入交流草本知识。</p>
+                        <div class="timeline-highlight">
+                            <strong>购物体验：</strong>购买特色香料、中草药产品或手工艺品作为纪念品。
+                            <div class="activity-time-note">开放时间：10:00-20:00 | 地点：市集广场</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00-15:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-exclamation-circle"></i> 自由活动时间</h3>
+                        <p class="timeline-desc">根据个人兴趣选择自由活动。</p>
+                        <div class="timeline-highlight">
+                            <strong>可选活动：</strong>再次体验喜欢的活动（如水月戏台如开放可观看）、参观国兰展（10:00-21:00开放）、前往兔Luck公园与兔子互动（10:00-17:00开放）或在园区内拍照留念。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30-16:30</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-mug-hot"></i> 书巢下午茶体验</h3>
+                        <p class="timeline-desc">前往<span class="activity-tag tag-food">餐饮</span><strong>书巢</strong>享受<strong>特色下午茶体验</strong>。</p>
+                        <div class="timeline-highlight">
+                            <strong>下午茶特色：</strong>草药茶，在书香氛围中放松身心。
+                            <div class="activity-time-note">下午茶时间：15:30-16:30 | 地点：书巢</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">16:30-17:00</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><i class="fas fa-shopping-bag"></i> 最后选购与离园</h3>
+                        <p class="timeline-desc">取回寄存的行李，如有需要可在气味市集最后选购纪念品，然后离园结束愉快的两日之旅。</p>
+                        <div class="activity-time-note">离园时间：17:00前</div>
+                    </div>
                 </div>
             </div>
             
-            <div class="timeline-item">
-                <div class="timeline-time">12:30-14:00 | 窑鸡套餐午餐</div>
-                <div class="timeline-content">
-                    <p>享用宿集特色<span class="tag tag-food">餐饮</span><strong>窑鸡套餐午餐</strong>，之后办理退房手续。</p>
-                    <p><span class="highlight">窑鸡套餐特色：</span>传统土窑烤制的特色美食</p>
-                    <p><span class="important">重要：需提前预订，确保烤制时间</span></p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">14:00-15:00 | 气味市集深度探索</div>
-                <div class="timeline-content">
-                    <p>深度探索<span class="tag tag-market">市集</span><strong>气味市集</strong>，与摊主深入交流草本知识。</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">15:30-16:30 | 书巢下午茶体验</div>
-                <div class="timeline-content">
-                    <p>前往<span class="tag tag-food">餐饮</span><strong>书巢</strong>享受<strong>特色下午茶体验</strong>。</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-time">16:30-17:00 | 最后选购与离园</div>
-                <div class="timeline-content">
-                    <p>取回寄存的行李，如有需要可在气味市集最后选购纪念品，然后离园结束愉快的两日之旅。</p>
-                </div>
+            <div class="tips-box">
+                <h3 class="tips-title"><i class="fas fa-lightbulb"></i> 两日行程小贴士</h3>
+                <ul class="tips-list">
+                    <li><strong>提前预订：</strong>鲲鹏宿集需提前预订</li>
+                    <li><strong>餐饮预订：</strong>露营烤肉和窑鸡套餐需提前预订</li>
+                    <li><strong>行李安排：</strong>第一天14:00后入住，第二天13:00前退房，行李可寄存</li>
+                    <li><strong>养生体验：</strong>八段锦、中草药DIY和下午茶是宿集特色体验，不容错过</li>
+                    <li><strong>餐饮选择：</strong>露营烤肉适合喜欢户外用餐体验的游客；窑鸡套餐适合喜欢传统美食的游客</li>
+                    <li><strong>亲子友好：</strong>如果带孩子，露营烤肉体验特别受欢迎；也可选择兔Luck公园（10:00-17:00）</li>
+                    <li><strong>纪念品购买：</strong>第二天下午是购买纪念品的最佳时间，可从容挑选</li>
+                    <li><strong>餐饮替代：</strong>如不选择特色套餐，宿集和园区也提供常规餐饮选择</li>
+                    <li><strong>交通安排：</strong>离园时提前安排好返程交通，宿集可协助叫车</li>
+                </ul>
             </div>
         </div>
-        
-        <div class="tip-box">
-            <div class="tip-title">💡 两日行程小贴士</div>
-            <ul class="tip-list">
-                <li><strong>提前预订：</strong>鲲鹏宿集、露营烤肉和窑鸡套餐需提前预订</li>
-                <li><strong>行李安排：</span>第一天14:00后入住，第二天13:00前退房，行李可寄存</li>
-                <li><strong>养生体验：</strong>八段锦、中草药DIY和下午茶是宿集特色体验，不容错过</li>
-                <li><strong>餐饮选择：</strong>露营烤肉适合喜欢户外用餐体验的游客；窑鸡套餐适合喜欢传统美食的游客</li>
-                <li><strong>亲子友好：</strong>如果带孩子，露营烤肉体验特别受欢迎；也可选择兔Luck公园（10:00-17:00）</li>
-                <li><strong>纪念品购买：</strong>第二天下午是购买纪念品的最佳时间，可从容挑选</li>
-                <li><strong>餐饮替代：</strong>如不选择特色套餐，宿集和园区也提供常规餐饮选择</li>
-                <li><strong>交通安排：</strong>离园时提前安排好返程交通，宿集可协助叫车</li>
-            </ul>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <!-- 结语 -->
-        <h2>把年过得具体</h2>
-        <p>香，是记忆的锚点，是情感的容器。在鲲鹏福地，我们不只是过一个年，而是通过香气、手作、表演和美食，把年过得具体而生动。</p>
-        
-        <p>无论是2小时的匆匆一瞥，还是两日的深度沉浸，我们都希望你能在这里找到属于自己的年味记忆。那个记忆里，有竹竿舞的欢快节奏，有草本香气的悠然萦绕，有手作温度的匠心传承，还有夜色中花神巡游的神秘浪漫。</p>
-        
-        <p>2026年春节，来鲲鹏福地，过一个真正香香的大年。</p>
-        
-        <div class="footer">
-            <p>鲲鹏福地春节活动时序推荐</p>
-            <p class="highlight">2026年2月17日 - 2月23日</p>
-            <p>香，是记忆的锚点，是情感的容器。</p>
-            <p>把你的年过得具体，过一个真正香香的大年。</p>
-        </div>
-    </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer container">
+        <p>鲲鹏福地春节活动时序推荐</p>
+        <p class="footer-highlight">2026年2月17日 - 2月23日</p>
+        <p>香，是记忆的锚点，是情感的容器。把你的年过得具体，过一个真正香香的大年。</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航与卡片交互
+            const journeyCards = document.querySelectorAll('.journey-card');
+            const journeySections = document.querySelectorAll('.journey-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // 默认激活2小时行程
+            activateJourney('2h');
+            
+            // 卡片点击事件
+            journeyCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const journeyId = this.getAttribute('data-journey');
+                    
+                    // 更新卡片状态
+                    journeyCards.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 更新导航状态
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === '#details') {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                    
+                    // 激活对应行程部分
+                    activateJourney(journeyId);
+                    
+                    // 平滑滚动到详情区域
+                    document.getElementById('details').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // 导航点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // 更新导航状态
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (targetId === 'journeys' || targetId === 'tips') {
+                        // 滚动到对应区域
+                        document.getElementById(targetId).scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    } else if (targetId === 'details') {
+                        // 保持当前激活的行程
+                        const activeCard = document.querySelector('.journey-card.active');
+                        if (activeCard) {
+                            const journeyId = activeCard.getAttribute('data-journey');
+                            activateJourney(journeyId);
+                        }
+                        
+                        document.getElementById('details').scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // 激活行程函数
+            function activateJourney(journeyId) {
+                // 隐藏所有行程部分
+                journeySections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // 显示目标行程部分
+                const targetSection = document.getElementById(journeyId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            }
+            
+            // 滚动监听 - 更新导航状态
+            window.addEventListener('scroll', function() {
+                const scrollPos = window.scrollY;
+                const journeySelector = document.getElementById('journeys').offsetTop;
+                const details = document.getElementById('details').offsetTop;
+                
+                // 移除所有导航激活状态
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                if (scrollPos < journeySelector - 100) {
+                    // 在顶部区域
+                    navLinks[0].classList.add('active');
+                } else if (scrollPos < details - 100) {
+                    // 在行程选择器区域
+                    navLinks[0].classList.add('active');
+                } else {
+                    // 在详情区域
+                    navLinks[1].classList.add('active');
+                }
+            });
+            
+            // 时间轴卡片悬停效果增强
+            const timelineContents = document.querySelectorAll('.timeline-content');
+            timelineContents.forEach(content => {
+                content.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                
+                content.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
