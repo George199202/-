@@ -49,6 +49,7 @@
 
         html {
             scroll-behavior: smooth;
+            padding-top: 0; /* 移除之前的padding-top */
         }
 
         body {
@@ -62,7 +63,7 @@
                 radial-gradient(circle at 15% 50%, rgba(168, 182, 161, 0.03) 0%, transparent 20%),
                 radial-gradient(circle at 85% 30%, rgba(194, 166, 115, 0.02) 0%, transparent 20%);
             overflow-x: hidden;
-            padding-top: 80px; /* 为顶部导航栏留出空间 */
+            padding-top: 0; /* 确保body没有额外padding */
         }
 
         /* 布局容器 */
@@ -72,17 +73,23 @@
             padding: 0 var(--space-md);
         }
 
-        /* 顶栏导航 */
+        /* 顶栏导航 - 修改为移动端友好 */
         .site-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: var(--space-sm) 0;
-            background-color: rgba(252, 250, 248, 0.92);
+            padding: var(--space-xs) 0; /* 减少移动端padding */
+            background-color: rgba(252, 250, 248, 0.95);
             backdrop-filter: blur(8px);
             z-index: 1000;
             border-bottom: 1px solid var(--color-border);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .site-header.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
         }
 
         .header-container {
@@ -97,10 +104,10 @@
         .site-title {
             font-family: var(--font-serif);
             font-weight: 600;
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* 减小字体大小 */
             color: var(--color-text-primary);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             position: relative;
             display: inline-block;
         }
@@ -123,28 +130,29 @@
 
         .site-title .sub {
             font-family: var(--font-sans);
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* 减小字体大小 */
             font-weight: 300;
             color: var(--color-text-light);
-            margin-left: 8px;
-            letter-spacing: 3px;
+            margin-left: 6px;
+            letter-spacing: 2px;
         }
 
         .main-nav ul {
             display: flex;
             list-style: none;
-            gap: var(--space-md);
+            gap: var(--space-sm); /* 减少间隙 */
         }
 
         .nav-link {
             font-family: var(--font-sans);
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* 减小字体大小 */
             font-weight: 400;
             color: var(--color-text-secondary);
             text-decoration: none;
             padding: 4px 0;
             position: relative;
             transition: color 0.3s ease;
+            white-space: nowrap; /* 防止换行 */
         }
 
         .nav-link::after {
@@ -167,30 +175,33 @@
             transform: scaleX(1);
         }
 
-        /* 英雄区域 */
+        /* 英雄区域 - 调整顶部间距和边距 */
         .hero-section {
             padding: var(--space-xl) 0 var(--space-lg);
+            margin-top: 70px; /* 减小顶部间距以适应移动端 */
             text-align: center;
             position: relative;
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 3.5rem;
+            font-size: 2.5rem; /* 减小字体大小 */
             font-weight: 500;
             line-height: 1.2;
             margin-bottom: var(--space-sm);
             color: var(--color-text-primary);
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
+            padding: 0 var(--space-sm); /* 添加左右内边距 */
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
             color: var(--color-text-secondary);
             max-width: 600px;
             margin: 0 auto var(--space-lg);
             line-height: 1.6;
+            padding: 0 var(--space-md); /* 添加左右内边距 */
         }
 
         .date-range {
@@ -209,6 +220,7 @@
         .journey-selector {
             margin-bottom: var(--space-xl);
             position: relative;
+            padding: 0 var(--space-sm); /* 添加内边距 */
         }
 
         .selector-title {
@@ -228,7 +240,7 @@
             content: '';
             position: absolute;
             top: 50%;
-            width: 60px;
+            width: 40px; /* 减小宽度 */
             height: 1px;
             background-color: var(--color-border);
         }
@@ -324,6 +336,7 @@
         /* 行程详情区域 */
         .journey-details {
             margin-bottom: var(--space-xl);
+            padding: 0 var(--space-sm); /* 添加内边距 */
         }
 
         .journey-section {
@@ -352,11 +365,12 @@
         .section-header {
             margin-bottom: var(--space-lg);
             position: relative;
+            padding: 0 var(--space-sm); /* 添加内边距 */
         }
 
         .section-title {
             font-family: var(--font-serif);
-            font-size: 2.2rem;
+            font-size: 2rem; /* 减小字体大小 */
             font-weight: 500;
             margin-bottom: var(--space-sm);
             color: var(--color-text-primary);
@@ -392,13 +406,13 @@
         .timeline {
             position: relative;
             margin: var(--space-xl) 0;
-            padding-left: 40px;
+            padding-left: 30px; /* 减小左边距 */
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 15px;
+            left: 10px; /* 调整位置 */
             top: 0;
             bottom: 0;
             width: 1px;
@@ -417,17 +431,17 @@
 
         .timeline-time {
             position: absolute;
-            left: -40px;
+            left: -30px; /* 调整位置 */
             top: 0;
             background-color: var(--color-bg-card);
             color: var(--color-accent-green);
             font-family: var(--font-serif);
             font-weight: 500;
-            font-size: 1rem;
-            padding: 6px 12px;
+            font-size: 0.9rem; /* 减小字体大小 */
+            padding: 6px 10px; /* 减小padding */
             border-radius: var(--radius-sm);
             border: 1px solid var(--color-border);
-            min-width: 100px;
+            min-width: 80px; /* 减小最小宽度 */
             text-align: center;
             z-index: 2;
         }
@@ -437,7 +451,7 @@
             border-radius: var(--radius-lg);
             padding: var(--space-md);
             border: 1px solid var(--color-border);
-            margin-left: 40px;
+            margin-left: 30px; /* 调整左边距 */
             position: relative;
             transition: all 0.3s ease;
         }
@@ -450,40 +464,42 @@
         .timeline-content::before {
             content: '';
             position: absolute;
-            left: -20px;
+            left: -15px; /* 调整位置 */
             top: 24px;
-            width: 20px;
+            width: 15px; /* 减小宽度 */
             height: 1px;
             background-color: var(--color-border);
         }
 
         .timeline-title {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-size: 1.2rem; /* 减小字体大小 */
             font-weight: 500;
             margin-bottom: 8px;
             color: var(--color-text-primary);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* 减小间隙 */
         }
 
         .timeline-title i {
             color: var(--color-accent-green);
+            font-size: 0.9rem; /* 减小图标大小 */
         }
 
         .timeline-desc {
             color: var(--color-text-secondary);
             margin-bottom: var(--space-sm);
             line-height: 1.6;
+            font-size: 0.95rem; /* 减小字体大小 */
         }
 
         .activity-tag {
             display: inline-block;
-            font-size: 0.75rem;
-            padding: 3px 10px;
+            font-size: 0.7rem; /* 减小字体大小 */
+            padding: 3px 8px; /* 减小padding */
             border-radius: 30px;
-            margin-right: 8px;
+            margin-right: 6px; /* 减小右边距 */
             margin-bottom: 8px;
             font-weight: 500;
         }
@@ -503,7 +519,7 @@
             padding: var(--space-sm);
             border-radius: 0 var(--radius-md) var(--radius-md) 0;
             margin-top: var(--space-sm);
-            font-size: 0.95rem;
+            font-size: 0.9rem; /* 减小字体大小 */
         }
 
         .timeline-highlight strong {
@@ -513,10 +529,10 @@
 
         .activity-time-note {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.75rem; /* 减小字体大小 */
             color: var(--color-text-light);
             background-color: rgba(107, 125, 108, 0.05);
-            padding: 4px 10px;
+            padding: 4px 8px; /* 减小padding */
             border-radius: var(--radius-sm);
             margin-top: 8px;
         }
@@ -526,16 +542,17 @@
             text-align: center;
             margin: var(--space-xl) 0;
             position: relative;
+            padding: 0 var(--space-sm); /* 添加内边距 */
         }
 
         .day-label {
             display: inline-block;
             font-family: var(--font-serif);
-            font-size: 1.4rem;
+            font-size: 1.2rem; /* 减小字体大小 */
             font-weight: 500;
             color: var(--color-text-primary);
             background-color: var(--color-bg-card);
-            padding: 10px 30px;
+            padding: 8px 20px; /* 减小padding */
             border: 1px solid var(--color-border);
             border-radius: 30px;
             position: relative;
@@ -581,12 +598,12 @@
 
         .tips-title {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-size: 1.2rem; /* 减小字体大小 */
             color: var(--color-accent-green);
             margin-bottom: var(--space-sm);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* 减小间隙 */
         }
 
         .tips-list {
@@ -594,21 +611,22 @@
         }
 
         .tips-list li {
-            padding: 8px 0 8px 30px;
+            padding: 8px 0 8px 25px; /* 减小左边距 */
             position: relative;
             color: var(--color-text-secondary);
+            font-size: 0.95rem; /* 减小字体大小 */
         }
 
         .tips-list li::before {
             content: '·';
             position: absolute;
-            left: 10px;
+            left: 8px; /* 调整位置 */
             color: var(--color-accent-green);
             font-size: 1.5rem;
             line-height: 1;
         }
 
-        /* 页脚 */
+        /* 页脚 - 增加边距 */
         .site-footer {
             padding: var(--space-lg) 0;
             text-align: center;
@@ -616,6 +634,7 @@
             margin-top: var(--space-xl);
             color: var(--color-text-light);
             font-size: 0.9rem;
+            padding: var(--space-lg) var(--space-md); /* 增加左右内边距 */
         }
 
         .footer-highlight {
@@ -624,112 +643,61 @@
             margin: 10px 0;
         }
 
-        /* 响应式设计 */
+        .site-footer p {
+            margin-bottom: var(--space-sm);
+            padding: 0 var(--space-sm); /* 确保文字不贴边 */
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-accent-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(138, 155, 124, 0.3);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--color-accent-green-light);
+            transform: translateY(-5px);
+        }
+
+        /* 响应式设计 - 优化移动端体验 */
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px; /* 减少顶部空间 */
-            }
-            
-            .site-header {
-                padding: 10px 0;
-                height: 70px;
-            }
-            
-            .header-container {
-                padding: 0 var(--space-sm);
-                height: 50px;
-            }
-            
-            .site-title {
-                font-size: 1.2rem;
-            }
-            
-            .site-title .sub {
-                display: none; /* 在手机上隐藏副标题 */
-            }
-            
             .hero-title {
-                font-size: 2.2rem;
-                margin-top: 0;
-                margin-bottom: var(--space-sm);
-            }
-            
-            .hero-section {
-                padding: var(--space-lg) 0 var(--space-md);
+                font-size: 2rem;
+                padding: 0 var(--space-sm);
             }
             
             .hero-subtitle {
                 font-size: 1rem;
-                margin-bottom: var(--space-md);
-            }
-            
-            .main-nav ul {
-                gap: var(--space-sm);
-            }
-            
-            .nav-link {
-                font-size: 0.85rem;
-                padding: 2px 0;
-            }
-            
-            .date-range {
-                margin-bottom: var(--space-lg);
-                font-size: 0.85rem;
-                padding: 5px 15px;
-            }
-            
-            .selector-title {
-                font-size: 1.1rem;
-                margin-bottom: var(--space-md);
-            }
-            
-            .selector-title::before,
-            .selector-title::after {
-                width: 30px;
+                padding: 0 var(--space-sm);
             }
             
             .journey-cards {
+                grid-template-columns: 1fr;
                 gap: var(--space-sm);
-                margin-bottom: var(--space-lg);
-            }
-            
-            .journey-card {
-                padding: var(--space-sm);
-            }
-            
-            .card-icon {
-                font-size: 1.8rem;
-                margin-bottom: 8px;
-            }
-            
-            .card-title {
-                font-size: 1.2rem;
-            }
-            
-            .card-duration {
-                font-size: 0.8rem;
-            }
-            
-            .card-desc {
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-intro {
-                font-size: 1rem;
-                line-height: 1.6;
             }
             
             .timeline {
                 padding-left: 20px;
-                margin: var(--space-lg) 0;
-            }
-            
-            .timeline::before {
-                left: 9px;
             }
             
             .timeline-time {
@@ -739,8 +707,7 @@
                 margin-bottom: 10px;
                 display: inline-block;
                 min-width: auto;
-                font-size: 0.9rem;
-                padding: 4px 10px;
+                font-size: 0.85rem;
             }
             
             .timeline-content {
@@ -752,104 +719,39 @@
                 display: none;
             }
             
-            .timeline-title {
-                font-size: 1.1rem;
+            .main-nav ul {
+                gap: var(--space-xs);
             }
             
-            .day-separator {
-                margin: var(--space-lg) 0;
-            }
-            
-            .day-label {
-                font-size: 1.2rem;
-                padding: 8px 20px;
-            }
-            
-            .tips-box {
-                padding: var(--space-sm);
-            }
-            
-            .tips-title {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding-top: 65px;
-            }
-            
-            .site-header {
-                height: 65px;
-                padding: 8px 0;
-            }
-            
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: var(--space-sm);
+            .nav-link {
+                font-size: 0.75rem;
             }
             
             .site-title {
                 font-size: 1.1rem;
             }
             
-            .main-nav ul {
-                gap: 8px;
+            .site-title .sub {
+                font-size: 0.65rem;
+                letter-spacing: 1px;
             }
             
-            .nav-link {
-                font-size: 0.8rem;
+            .hero-section {
+                margin-top: 60px; /* 进一步减小移动端顶部间距 */
             }
             
-            .journey-card {
-                padding: 12px;
+            .section-title {
+                font-size: 1.6rem;
             }
             
-            .card-title {
-                font-size: 1.1rem;
-            }
-            
-            .card-desc {
-                font-size: 0.85rem;
-            }
-            
-            .card-highlight {
-                font-size: 0.7rem;
-            }
-            
-            .timeline-item {
-                margin-bottom: var(--space-md);
-            }
-            
-            .activity-tag {
-                font-size: 0.7rem;
-                padding: 2px 8px;
-                margin-right: 5px;
-                margin-bottom: 5px;
-            }
-            
-            .timeline-highlight {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-            
-            .activity-time-note {
-                font-size: 0.75rem;
-                padding: 3px 8px;
-            }
-            
-            [style*="color: #c62828"] {
-                font-size: 0.8rem !important;
+            .section-header, .journey-details, .journey-selector {
+                padding: 0 var(--space-xs);
             }
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .container {
-                padding: 0 10px;
+                padding: 0 var(--space-xs);
             }
             
             .hero-title {
@@ -857,15 +759,59 @@
             }
             
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             
-            .site-title {
-                font-size: 1rem;
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .card-icon {
+                font-size: 1.6rem;
+            }
+            
+            .card-title {
+                font-size: 1.2rem;
+            }
+            
+            .timeline-time {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+            
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+            
+            .header-container {
+                padding: 0 var(--space-sm);
+            }
+            
+            .hero-section {
+                margin-top: 55px; /* 超小屏幕进一步调整 */
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* 超小屏幕特别调整 */
+        @media (max-width: 360px) {
+            .site-title .sub {
+                display: none; /* 超小屏幕隐藏副标题 */
+            }
+            
+            .main-nav ul {
+                gap: 6px;
             }
             
             .nav-link {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -886,6 +832,11 @@
             </nav>
         </div>
     </header>
+
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
     <!-- 英雄区域 -->
     <section class="hero-section container">
@@ -1453,10 +1404,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 导航与卡片交互
+            // 获取元素
+            const header = document.querySelector('.site-header');
             const journeyCards = document.querySelectorAll('.journey-card');
             const journeySections = document.querySelectorAll('.journey-section');
             const navLinks = document.querySelectorAll('.nav-link');
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            // 自动隐藏header的变量
+            let lastScrollTop = 0;
+            let hideHeaderTimeout = null;
             
             // 默认激活2小时行程
             activateJourney('2h');
@@ -1483,11 +1440,26 @@
                     // 激活对应行程部分
                     activateJourney(journeyId);
                     
+                    // 点击到二级页面时隐藏header
+                    header.classList.add('hidden');
+                    
+                    // 清除之前的timeout
+                    if (hideHeaderTimeout) {
+                        clearTimeout(hideHeaderTimeout);
+                    }
+                    
+                    // 设置自动显示header的延迟
+                    hideHeaderTimeout = setTimeout(() => {
+                        header.classList.remove('hidden');
+                    }, 3000); // 3秒后显示header
+                    
                     // 平滑滚动到详情区域
-                    document.getElementById('details').scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    setTimeout(() => {
+                        document.getElementById('details').scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
                 });
             });
             
@@ -1500,6 +1472,9 @@
                     // 更新导航状态
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
+                    
+                    // 点击导航时显示header
+                    header.classList.remove('hidden');
                     
                     if (targetId === 'journeys' || targetId === 'tips') {
                         // 滚动到对应区域
@@ -1523,25 +1498,33 @@
                 });
             });
             
-            // 激活行程函数
-            function activateJourney(journeyId) {
-                // 隐藏所有行程部分
-                journeySections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // 显示目标行程部分
-                const targetSection = document.getElementById(journeyId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
-            }
-            
-            // 滚动监听 - 更新导航状态
+            // 滚动监听 - 更新导航状态和显示/隐藏header
             window.addEventListener('scroll', function() {
                 const scrollPos = window.scrollY;
                 const journeySelector = document.getElementById('journeys').offsetTop;
                 const details = document.getElementById('details').offsetTop;
+                
+                // 更新返回顶部按钮
+                if (scrollPos > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+                
+                // 滚动时自动隐藏/显示header的逻辑
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (currentScrollTop > lastScrollTop) {
+                    // 向下滚动 - 隐藏header
+                    if (currentScrollTop > 100) { // 滚动超过100px才隐藏
+                        header.classList.add('hidden');
+                    }
+                } else {
+                    // 向上滚动 - 显示header
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = currentScrollTop;
                 
                 // 移除所有导航激活状态
                 navLinks.forEach(link => link.classList.remove('active'));
@@ -1558,6 +1541,22 @@
                 }
             });
             
+            // 返回顶部按钮点击事件
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                // 返回顶部时显示header
+                header.classList.remove('hidden');
+            });
+            
+            // 鼠标悬停在header区域时显示header
+            header.addEventListener('mouseenter', function() {
+                header.classList.remove('hidden');
+            });
+            
             // 时间轴卡片悬停效果增强
             const timelineContents = document.querySelectorAll('.timeline-content');
             timelineContents.forEach(content => {
@@ -1569,6 +1568,20 @@
                     this.style.transform = 'translateY(0)';
                 });
             });
+            
+            // 激活行程函数
+            function activateJourney(journeyId) {
+                // 隐藏所有行程部分
+                journeySections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // 显示目标行程部分
+                const targetSection = document.getElementById(journeyId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            }
         });
     </script>
 </body>
