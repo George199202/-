@@ -642,6 +642,198 @@
             font-weight: 500;
         }
 
+        /* 香票套餐区域 - 修改位置 */
+        .package-section {
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+
+        .package-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 20px;
+        }
+
+        .package-title::before, .package-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 1px;
+            background-color: var(--color-border);
+        }
+
+        .package-title::before {
+            right: 100%;
+        }
+
+        .package-title::after {
+            left: 100%;
+        }
+
+        .package-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .package-card {
+            background-color: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 155, 124, 0.03) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent-green-light);
+            box-shadow: 0 12px 30px var(--color-shadow);
+        }
+
+        .package-card.popular {
+            border-color: var(--color-accent-gold);
+            transform: translateY(-4px);
+        }
+
+        .package-card.popular::after {
+            content: '热门推荐';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--color-accent-gold);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 30px;
+            transform: rotate(45deg);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .package-name {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            line-height: 1.3;
+            color: var(--color-accent-green);
+        }
+
+        .package-price {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--color-accent-gold);
+            line-height: 1;
+        }
+
+        .package-price .unit {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--color-text-light);
+            margin-left: 4px;
+        }
+
+        .package-features {
+            flex-grow: 1;
+            margin-bottom: var(--space-md);
+        }
+
+        .package-features ul {
+            list-style: none;
+            margin-bottom: var(--space-sm);
+        }
+
+        .package-features li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-green);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .package-features .highlight {
+            color: var(--color-accent-gold);
+            font-weight: 500;
+        }
+
+        .package-note {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-top: var(--space-sm);
+            padding-top: var(--space-xs);
+            border-top: 1px dashed var(--color-border);
+        }
+
+        .package-btn {
+            display: inline-block;
+            background-color: var(--color-accent-green);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 10px 20px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: var(--space-sm);
+            letter-spacing: 0.5px;
+        }
+
+        .package-btn:hover {
+            background-color: var(--color-accent-green-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(138, 155, 124, 0.2);
+        }
+
+        .package-card.popular .package-btn {
+            background-color: var(--color-accent-gold);
+        }
+
+        .package-card.popular .package-btn:hover {
+            background-color: #d4b782;
+        }
+
         /* 页脚 */
         .site-footer {
             padding: var(--space-xl) 0;
@@ -708,9 +900,16 @@
                 font-size: 1rem;
             }
             
-            .journey-cards {
+            .package-cards, .journey-cards {
                 grid-template-columns: 1fr;
                 gap: var(--space-sm);
+            }
+            
+            .package-card.popular::after {
+                top: 10px;
+                right: -28px;
+                font-size: 0.65rem;
+                padding: 3px 28px;
             }
             
             .timeline {
@@ -777,6 +976,14 @@
             
             .section-title {
                 font-size: 1.4rem;
+            }
+            
+            .package-name {
+                font-size: 1.2rem;
+            }
+            
+            .package-price {
+                font-size: 1.6rem;
             }
             
             .card-icon {
@@ -1398,6 +1605,62 @@
                     <li><strong>餐饮替代：</strong>如不选择特色套餐，宿集和园区也提供常规餐饮选择</li>
                     <li><strong>交通安排：</strong>离园时提前安排好返程交通</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 香票套餐区域 - 移动到两日深度游后面 -->
+    <section class="package-section container">
+        <h2 class="package-title">香票套餐</h2>
+        <div class="package-cards">
+            <!-- 套餐一 -->
+            <div class="package-card">
+                <h3 class="package-name">套餐一：基础体验</h3>
+                <div class="package-price">30<span class="unit">元</span></div>
+                <div class="package-features">
+                    <ul>
+                        <li>停车费</li>
+                        <li>草木工坊体验</li>
+                        <li>书巢饮品1份</li>
+                    </ul>
+                    <div class="package-note">适合单人基础体验，体验园区核心手作活动</div>
+                </div>
+                <a href="https://shop161077984.m.youzan.com/wscgoods/detail/3ezrncml3977sgd?shopAutoEnter=1" class="package-btn" target="_blank">立即预订</a>
+            </div>
+            
+            <!-- 套餐二 -->
+            <div class="package-card popular">
+                <h3 class="package-name">套餐二：深度体验</h3>
+                <div class="package-price">288<span class="unit">元</span></div>
+                <div class="package-features">
+                    <ul>
+                        <li>停车费</li>
+                        <li><span class="highlight">窑鸡套餐</span>（特色餐饮）</li>
+                        <li>书巢饮品1份</li>
+                        <li>活动特权</li>
+                        <li>景区内旅拍机构<span class="highlight">8.5折</span>优惠</li>
+                    </ul>
+                    <div class="package-note">热门选择，包含特色餐饮和拍照优惠，适合情侣或家庭</div>
+                </div>
+                <a href="https://shop161077984.m.youzan.com/wscgoods/detail/3ezrncml3977sgd?shopAutoEnter=1" class="package-btn" target="_blank">立即预订</a>
+            </div>
+            
+            <!-- 套餐三 -->
+            <div class="package-card">
+                <h3 class="package-name">套餐三：团体尊享</h3>
+                <div class="package-price">998<span class="unit">元</span></div>
+                <div class="package-features">
+                    <ul>
+                        <li>停车费</li>
+                        <li>草木工坊体验</li>
+                        <li><span class="highlight">露营套餐（10人份）</span></li>
+                        <li>书巢饮品10份</li>
+                        <li>活动特权</li>
+                        <li>景区内旅拍机构<span class="highlight">8.5折</span>优惠</li>
+                    </ul>
+                    <div class="package-note">适合团体活动，包含10人份露营套餐，性价比高</div>
+                </div>
+                <a href="https://shop161077984.m.youzan.com/wscgoods/detail/3ezrncml3977sgd?shopAutoEnter=1" class="package-btn" target="_blank">立即预订</a>
             </div>
         </div>
     </section>
